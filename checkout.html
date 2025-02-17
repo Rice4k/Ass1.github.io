@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Thanh Toán</h1>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="cart.html">Giỏ hàng</a>
+        </nav>
+    </header>
+
+    <section class="checkout">
+        <h2>Thông tin thanh toán</h2>
+        <p><b>Sản phẩm:</b> <span id="checkout-name">Chưa có</span></p>
+        <p><b>Giá:</b> <span id="checkout-price">0</span>đ</p>
+        <p><b>Số lượng:</b> <span id="checkout-quantity">0</span></p>
+
+        <form action="success.html" method="POST">
+            <input type="text" name="name" placeholder="Họ tên" required>
+            <input type="text" name="address" placeholder="Địa chỉ" required>
+            <input type="text" name="phone" placeholder="Số điện thoại" required>
+            <button type="submit">Hoàn tất thanh toán</button>
+        </form>
+    </section>
+
+    <script>
+        // Lấy dữ liệu từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("checkout-name").textContent = urlParams.get('product') || "Chưa có";
+        document.getElementById("checkout-price").textContent = parseInt(urlParams.get('price') || "0").toLocaleString();
+        document.getElementById("checkout-quantity").textContent = urlParams.get('quantity') || "0";
+    </script>
+
+</body>
+</html>

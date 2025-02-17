@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gói Tập Luyện</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1 style="color: red;">Chọn Gói Tập</h1>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="cart.html">Giỏ hàng</a>
+        </nav>
+    </header>
+
+    <section class="pricing">
+        <h2>Gói Tập Luyện</h2>
+
+        <form action="cart.html" method="GET">
+            <div class="plan">
+                <h3>Gói Cơ Bản</h3>
+                <p>Giá: 500.000đ/tháng</p>
+                <input type="hidden" name="product" value="Gói Cơ Bản">
+                <input type="hidden" name="price" value="500000">
+                <label for="quantity1">Số lượng:</label>
+                <input type="number" id="quantity1" name="quantity" min="1" value="1">
+                <button type="submit">Thêm vào giỏ hàng</button>
+            </div>
+        </form>
+
+        <form action="cart.html" method="GET">
+            <div class="plan">
+                <h3>Gói Chuyên Sâu</h3>
+                <p>Giá: 1.200.000đ/tháng</p>
+                <input type="hidden" name="product" value="Gói Chuyên Sâu">
+                <input type="hidden" name="price" value="1200000">
+                <label for="quantity2">Số lượng:</label>
+                <input type="number" id="quantity2" name="quantity" min="1" value="1">
+                <button type="submit">Thêm vào giỏ hàng</button>
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>

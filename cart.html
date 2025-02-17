@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Giỏ Hàng</h1>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+            </a>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h2>Sản phẩm trong giỏ hàng</h2>
+
+        <ul>
+            <li>
+                <b>Tên gói:</b> <span id="product-name">Chưa có sản phẩm</span><br>
+                <b>Giá:</b> <span id="product-price">0</span>đ<br>
+                <b>Số lượng:</b> <span id="product-quantity">0</span>
+            </li>
+        </ul>
+
+        <form action="checkout.html" method="GET">
+            <input type="hidden" id="checkout-product" name="product">
+            <input type="hidden" id="checkout-price" name="price">
+            <input type="hidden" id="checkout-quantity" name="quantity">
+            <button type="submit">Thanh toán</button>
+        </form>
+    </section>
+
+    <script>
+        // Lấy dữ liệu từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product') || "Chưa có sản phẩm";
+        const price = urlParams.get('price') || "0";
+        const quantity = urlParams.get('quantity') || "0";
+
+        // Hiển thị dữ liệu
+        document.getElementById("product-name").textContent = product;
+        document.getElementById("product-price").textContent = parseInt(price).toLocaleString();
+        document.getElementById("product-quantity").textContent = quantity;
+
+        // Gửi dữ liệu qua form thanh toán
+        document.getElementById("checkout-product").value = product;
+        document.getElementById("checkout-price").value = price;
+        document.getElementById("checkout-quantity").value = quantity;
+    </script>
+
+</body>
+</html>
